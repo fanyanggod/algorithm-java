@@ -3,7 +3,6 @@ package com.sherlock.algorithm.sort;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import java.util.Arrays;
-import java.util.Random;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
@@ -26,6 +25,7 @@ class SortTest {
     int[] nums4 = Arrays.copyOf(nums, 10000);
     int[] nums5 = Arrays.copyOf(nums, 10000);
     int[] nums6 = Arrays.copyOf(nums, 10000);
+    int[] nums7 = Arrays.copyOf(nums, 10000);
 
 
     long as = System.currentTimeMillis();
@@ -52,10 +52,15 @@ class SortTest {
     Quick.sort(nums6);
     log.info("quick cost:{}",System.currentTimeMillis() - fs);
 
+    long gs = System.currentTimeMillis();
+    Quick3way.sort(nums7);
+    log.info("quick3way cost:{}",System.currentTimeMillis() - gs);
+
     assertArrayEquals(nums,nums2);
     assertArrayEquals(nums, nums3);
     assertArrayEquals(nums, nums4);
     assertArrayEquals(nums, nums5);
     assertArrayEquals(nums, nums6);
+    assertArrayEquals(nums, nums7);
   }
 }
